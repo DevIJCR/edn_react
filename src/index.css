@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@font-face{
+    font-family: 'Patria';
+    src: url("./assets/fonts/Patria_Regular.otf") format("OpenType");
+}
+
+@theme{
+    --color-red-ist: #611232;
+    --color-red-enf-ist: #9b2247;
+    --color-green-ist: #002f2a;
+    --color-green-enf-ist: #1e5b4f;
+    --color-gold-ist: #a57f2c;
+    --color-gold-enf-ist: #e6d194;
+    --color-black-ist: #161a1d;
+    --color-gray-ist: #98989a;
+    --color-gray-bg: #ebebeb;
+
+    --font-noto: "Noto Sans", sans-serif;
+    --font-patria: "Patria", sans-serif;
+}
