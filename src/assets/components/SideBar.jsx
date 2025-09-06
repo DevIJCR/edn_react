@@ -3,8 +3,35 @@ import AnchorSideBar from "./AnchorSideBar";
 import Submenu from "./Submenu";
 import { useState } from "react";
 
+const submenuLicenciatura = [
+    {
+        href: '#',
+        name: 'Licenciatura en Dietética y Nurición'
+    },
+    {
+        href:'#',
+        name:'Alumnos',
+    },
+]
+
+const submenuPosgrado = [
+    {
+        href:'#',
+        name:'Maestría en Nutrición Clínica',
+    }
+]
+
 export default function SideBar({handleClick}){
     const [activeMenu, setActiveMenu] = useState(0);
+
+    const handleActiveMenu = (id)=>{
+        if(activeMenu === id){
+            setActiveMenu(0);
+        }else{
+            setActiveMenu(id);
+        }
+    }
+
     return (
         <nav className="absolute top-0 bg-black/50 w-full h-full z-10">
             <div className="absolute right-0 top-0 bg-red-ist w-[60%] h-full px-2 py-4">
