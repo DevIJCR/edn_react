@@ -7,6 +7,7 @@ import FacebookIcon from "../icons/facebook.svg";
 import YoutubeIcon from "../icons/youtube.svg";
 import TwitterIcon from "../icons/twitter-x.svg";
 import InstaIcon from "../icons/instagram.svg";
+import NormalBar from "./NormalBar";
 
 export default function AppShell({children}){
     const [sideBarState, setSideBarState] = useState(false);
@@ -26,8 +27,9 @@ export default function AppShell({children}){
             <header className="flex items-center justify-center px-2 py-2">
                 <img className="h-10" src={Logos} alt="Logos institucionales" />
             </header>
-            <div className="bg-red-ist px-2 py-2 flex items-center justify-end">
-                <button onClick={handleClick} type="button" className="flex items-center">
+            <div className="bg-red-ist px-2 py-2 flex items-center justify-end md:justify-center h-9">
+                <NormalBar/>
+                <button onClick={handleClick} type="button" className="md:hidden flex items-center">
                     <img className="size-7" src={ListIcon} alt="Icono de Boton menú" />
                 </button>
             </div>
@@ -38,8 +40,8 @@ export default function AppShell({children}){
                 {children}
             </main>
             <footer className="bg-red-ist w-full px-4 py-4 flex flex-col gap-6">
-                <div>
-                    <img src={LogosFooter} alt="Logos institucionales" />
+                <div className="flex items-center w-full justify-center">
+                    <img className="h-12" src={LogosFooter} alt="Logos institucionales" />
                 </div>
                 <div className="flex flex-col items-center">
                     <h2 className="text-white font-patria text-xl">Ubicación:</h2>

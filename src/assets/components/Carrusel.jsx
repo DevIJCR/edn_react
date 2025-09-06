@@ -1,17 +1,11 @@
 import { useState, useEffect } from "react";
-import carrusel1 from "../images/carrusel1.webp";
-import carrusel2 from "../images/carrusel2.webp";
-import carrusel3 from "../images/carrusel3.webp";
-import carrusel4 from "../images/carrusel4.webp";
-import carrusel5 from "../images/carrusel5.webp";
-
 
 const imagenes = [
-    carrusel1,
-    carrusel2,
-    carrusel3,
-    carrusel4,
-    carrusel5,
+    "./carrusel1.webp",
+    "./carrusel2.webp",
+    "./carrusel3.webp",
+    "./carrusel4.webp",
+    "./carrusel5.webp",
 ];
 
 export default function Carrusel(){
@@ -38,9 +32,13 @@ export default function Carrusel(){
     };
 
     return(
-        <div id="carousel" className="relative w-full h-64 sm:h-80 md:h-[28rem] lg:h-[34rem] overflow-hidden group" onMouseEnter={()=>setPausado(true)} onMouseLeave={()=>setPausado(false)}>
+        <div id="carousel" className="relative w-full h-64 sm:h-80 md:h-[28rem] lg:h-[600px] overflow-hidden group" onMouseEnter={()=>setPausado(true)} onMouseLeave={()=>setPausado(false)}>
                 <div className="absolute inset-0">
-                    <img src={imagenes[index]} alt="Slide" className="carousel-slide absolute inset-0 w-full h-full object-cover opacity-100" />
+                    {
+                        imagenes.map((_,i)=>
+                            (<img key={i} src={imagenes[i]} alt="Slide" className={`carousel-slide absolute inset-0 w-full h-full object-cover ${i === index ? "opacity-100":"opacity-0"}`} />)
+                        )
+                    }
                     <button
                         onClick={anterior}
                         className="absolute top-1/2 left-4 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60"
