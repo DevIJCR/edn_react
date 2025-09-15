@@ -22,36 +22,51 @@ export default function AppShell({children}){
     if(sideBarState){
         bar= <SideBar handleClick={handleClick}/>;
     }
+    function MainFooterLinks({name, href, target}){
+        return(
+            <a className="text-white font-noto underline underline-offset-4 text-center" href={href} target={target}>{name}</a>
+        );
+    }
+    function SecondaryFooterLinks({name, href, target}){
+        return(
+            <a className="text-gold-enf-ist font-patria text-center" href={href} target={target}>{name}</a>
+        );
+    }
+    function ThirdFooterLinks({name, href, target}){
+        return(
+            <a className="text-gold-enf-ist font-patria underline underline-offset-4" href={href}>{name}</a>
+        );
+    }
     return(
         <>
-            <header className="flex items-center justify-center px-2 py-2">
+            <header className="flex items-center justify-center px-2 py-2 fixed top-0 bg-white w-full h-16 z-10">
                 <img className="h-10" src={Logos} alt="Logos institucionales" />
             </header>
-            <div className="bg-red-ist px-2 py-2 flex items-center justify-end md:justify-center h-9">
+            <div className="bg-red-ist px-2 py-2 flex items-center justify-end md:justify-center h-9 fixed top-16 z-10 w-full">
                 <NormalBar/>
                 <button onClick={handleClick} type="button" className="md:hidden flex items-center">
                     <img className="size-7" src={ListIcon} alt="Icono de Boton menú" />
                 </button>
             </div>
             <div className="w-full bg-black/50">
-                {bar}
+                    {bar}
             </div>
-            <main>
+            <main className="mt-24">
                 {children}
             </main>
-            <footer className="bg-red-ist w-full px-4 py-4 flex flex-col gap-6">
-                <div className="flex items-center w-full justify-center">
-                    <img className="h-12" src={LogosFooter} alt="Logos institucionales" />
+            <footer className="bg-red-ist w-full px-4 py-4 flex flex-col lg:flex-row lg:items-center gap-6 lg:px-6 lg:py-6">
+                <div className="flex items-center justify-center">
+                    <img className="h-20" src={LogosFooter} alt="Logos institucionales" />
                 </div>
                 <div className="flex flex-col items-center">
                     <h2 className="text-white font-patria text-xl">Ubicación:</h2>
-                    <a className="text-white font-noto underline underline-offset-4 text-center" target="blank" href="https://maps.app.goo.gl/bP9CftoEncHb5YQh6">Callejon Via, Av. San Fernando No. 12, San Pedro Apostol, Tlalpan, 14070 CDMX</a>
+                    <MainFooterLinks href={'https://maps.app.goo.gl/bP9CftoEncHb5YQh6'} name={'Callejon Via, Av. San Fernando No. 12, San Pedro Apostol, Tlalpan, 14070 CDMX'} target={'blank'}/>
                 </div>
                 <div className="flex flex-col gap-1 items-center">
-                    <h2 className="text-white font-patria text-xl">Enlaces EDN</h2>
+                    <h2 className="text-white font-patria text-xl text-center">Enlaces EDN</h2>
                     <div className="flex flex-col ">
-                        <a className="text-gold-enf-ist font-patria text-center" href="#">Aviso de Privacidad Integral</a>
-                        <a className="text-gold-enf-ist font-patria text-center" href="#">Aviso de Privacidad Simplificado</a>
+                        <SecondaryFooterLinks href={'https://edn.issste.gob.mx/AVISO%20DE%20PRIVACIDAD%20INTEGRAL%20EDN%20ISSSTE.htm'} name={'Aviso de privacidad Integral'} target={'self'}/>
+                        <SecondaryFooterLinks href={'https://edn.issste.gob.mx/AVISO%20DE%20PRIVACIDAD%20SIMPLIFICADO.htm'} name={'Aviso de Privacidad Simplificado'} target={'self'}/>
                     </div>
                 </div>
                 <div className="flex flex-col gap-1 items-center">
@@ -60,27 +75,25 @@ export default function AppShell({children}){
                         <div className="flex flex-col items-center ">
                             <h3 className="text-gold-enf-ist font-patria">¿Qué es gob.mx?</h3>
                             <p className="text-white text-center font-noto">Es el portal único de trámites, información y participación ciudadana.</p>
-                            <a className="text-gold-enf-ist font-patria underline underline-offset-4" href="#">Leer más</a>
+                            <ThirdFooterLinks href={'https://www.gob.mxque-es-gobmx/'} name={'Leer más'} target={'blank'}/>
                         </div>
                         <div className="flex flex-col items-center ">
-                            <a className="text-gold-enf-ist font-patria" href="">Portal de datos abiertos</a>
-                            <a className="text-gold-enf-ist font-patria" href="">Declaración de accesibilidad</a>
-                            <a className="text-gold-enf-ist font-patria" href="">Terminos y condiciones</a>
+                            <SecondaryFooterLinks href={'https://datos.gob.mx/'} name={'Portal de datos abiertos'} target={'blank'}/>
+                            <SecondaryFooterLinks href={'https://www.gob.mx/accesibilidad'} name={'Declaración de accesibilidad'} target={'blank'}/>
+                            <SecondaryFooterLinks href={'https://www.gob.mx/terminos'} name={'Terminos y Condiciones'} target={'blank'}/>
                         </div>
                         <div className="flex flex-col items-center ">
-                            <a className="text-gold-enf-ist font-patria" href="">Participa</a>
-                            <a className="text-gold-enf-ist font-patria" href="">Marco Juridico</a>
-                            <a className="text-gold-enf-ist font-patria" href="">Plataforma Nacional de Transparencia</a>
-                            <a className="text-gold-enf-ist font-patria" href="">Transparencia para el pueblo</a>
-                            <a className="text-gold-enf-ist font-patria" href="">Alerta</a>
+                            <SecondaryFooterLinks href={'http://www.ordenjuridico.gob.mx/'} name={'Marco Jurídico'} target={'blank'}/>
+                            <SecondaryFooterLinks href={'https://consultapublicamx.plataformadetransparencia.org.mx/vut-web/faces/view/consultaPublica.xhtml#inicio'} name={'Plataforma Nacional de Transparencia'} target={'blank'}/>
+                            <SecondaryFooterLinks href={'https://transparencia.gob.mx/home.html'} name={'Transparencia para el pueblo'} target={'blank'}/>
                         </div>
                     </div>
                 </div>
                 <div className="flex flex-col gap-1 items-center">
-                    <a className="text-white font-patria text-xl underline underline-offset-8" href="#">Denuncia Contra servidores publicos</a>
+                    <a className="text-white font-patria text-xl underline underline-offset-8 lg:text-center" href="#">Denuncia Contra servidores publicos</a>
                 </div>
                 <div className="flex flex-col gap-1 items-center">
-                    <h2 className="text-xl text-white font-patria">Siguenos en las redes sociales:</h2>
+                    <h2 className="text-xl text-white font-patria lg:text-center">Siguenos en las redes sociales:</h2>
                     <div className="flex flex-col items-center ">
                         <h2 className="text-gold-enf-ist font-patria">Redes sociales EDN:</h2>
                         <div className="flex items-center gap-4">

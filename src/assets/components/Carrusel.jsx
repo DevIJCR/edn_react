@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react";
 
-const imagenes = [
-    "./carrusel1.webp",
-    "./carrusel2.webp",
-    "./carrusel3.webp",
-    "./carrusel4.webp",
-    "./carrusel5.webp",
-];
 
-export default function Carrusel(){
+
+export default function Carrusel({type, imagenes}){
     const [index, setIndex] = useState(0);
     const [pausado, setPausado] = useState(false);
 
@@ -36,7 +30,7 @@ export default function Carrusel(){
                 <div className="absolute inset-0">
                     {
                         imagenes.map((_,i)=>
-                            (<img key={i} src={imagenes[i]} alt="Slide" className={`carousel-slide absolute inset-0 w-full h-full object-cover ${i === index ? "opacity-100":"opacity-0"}`} />)
+                            (<img key={i} src={imagenes[i]} alt="Slide" className={`carousel-slide absolute inset-0 w-full h-full ${type} ${i === index ? "opacity-100":"opacity-0"}`} />)
                         )
                     }
                     <button
