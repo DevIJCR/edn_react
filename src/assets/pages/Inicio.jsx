@@ -3,6 +3,11 @@ import Carrusel from "../components/Carrusel";
 import imagenInicio2 from "../images/oferta2.webp"
 import imagenInicio1 from "../images/oferta1.webp";
 import TestimonioCard from "../components/TestimonioCard";
+import Button from "../components/Button";
+import Titulo1 from "../components/Titulo1";
+import Titulo3 from "../components/Titulo3";
+import Parrafo from "../components/TextComponents";
+import { Titulo2 } from "../components/TextComponents.jsx";
 
 export default function Inicio(){
     const imagenes = [
@@ -17,40 +22,43 @@ export default function Inicio(){
         "./Agenda1.jpg",
         "./Agenda2.jpg",
     ];
+    function handleClickButtons(){
+        
+    }
     return(
         <AppShell>
             <section className="w-full">
                 <Carrusel type={'object-cover'} imagenes={imagenes}/>
             </section>
-            <section className="border-b border-b-gray-300">
-                <div className=" bg-white flex flex-col items-center px-4 py-4 gap-6">
-                    <div className="flex flex-col items-center">
-                        <h3 className="text-base text-gold-ist font-noto font-bold">Bienvenidos a</h3>
-                        <h2 className="text-3xl font-patria text-black-ist text-center">La Escuela de Dietética y Nutrición del ISSSTE</h2>
-                        <p className="text-gray-500">Conoce la oferta educativa que tenemos para ti.</p>
+            <section className="border-b border-b-gray-300 w-full bg-white flex flex-col items-center">
+                <div className=" bg-white flex flex-col items-center px-4 py-4 gap-6 md:w-[90%]">
+                    <div className="flex flex-col items-center mt-6">
+                        <Titulo3 text={'Bienvenidos a'}/>
+                        <Titulo1 text={'La Escuela de Dietética y Nutrición del ISSSTE'}/>
+                        <Parrafo text={'Conoce la oferta educativa que tenemos para ti'}/>
                     </div>
-                    <div className="flex gap-4 items-center">
-                        <img className="rounded-md max-w-48" src={imagenInicio1} alt="Imagen de alumno"/>
-                        <div className="flex flex-col justify-around h-auto gap-4">
+                    <div className="flex gap-4 items-center md:justify-center md:max-w-[85%] md:mt-6 md:gap-6">
+                        <img className="rounded-md max-w-48 md:max-w-96" src={imagenInicio1} alt="Imagen de alumno"/>
+                        <div className="flex flex-col justify-around h-auto gap-4 md:w-[50%]">
                             <div>
-                                <h4 className="text-gold-ist font-bold font-noto text-xs">Conoce la</h4>
-                                <h2 className="text-black-ist font-patria text-xl">Licenciatura en Dietética y Nutrición</h2>
+                                <Titulo3 text={'Conoce la'}/>
+                                <Titulo2 textTitle={'Licenciatura en Dietética y Nutrición'}/>
                             </div>
-                            <p className="text-sm text-gray-500 font-noto">La Licenciatura en Dietética y Nutrición cuenta con planes de estudio con validez oficial.</p>
-                            <button className="bg-green-enf-ist rounded-md px-2 py-1 text-white font-patria">Más información</button>
+                            <Parrafo text={'La Licenciatura en Dietética y Nutrición cuenta con planes de estudio con validez oficial.'}/>
+                            <Button text={'Más Información'} handleClick={handleClickButtons}/>
                         </div>
                     </div>
-                    <div className=" bg-white flex flex-col items-center px-4 py-4 gap-6">
-                        <div className="flex gap-4 items-center">
-                            <div className="flex flex-col justify-around gap-4">
+                    <div className=" flex gap-4 items-center md:justify-center md:max-w-[85%] md:mt-6 md:gap-6">
+                        <div className="flex gap-4 items-center justify-center">
+                            <div className="flex flex-col justify-around gap-4 md:w-[50%]">
                                 <div>
-                                    <h4 className="text-gold-ist font-bold font-noto text-xs">Conoce la</h4>
-                                    <h2 className="text-black-ist font-patria text-xl">Maestría en Nutrición Clínica</h2>
+                                    <Titulo3 text={'Conoce la'} />
+                                    <Titulo2 textTitle={'Maestría en Nutrición Clínica'}/>
                                 </div>
-                                <p className="text-sm text-gray-500 font-noto text-clip">Formamos maestros en Nutrición Clínica, capaces de generar conocimientos para prevenir y solucionar problemas con la alimentación y nutrición del individuo.</p>
-                                <button className="bg-green-enf-ist rounded-md px-2 py-1 text-white font-patria">Más información</button>
+                                <Parrafo text={'Formamos maestros en Nutrición Clínica, capaces de generar conocimientos para prevenir y solucionar problemas con la alimentación y nutrición del individuo.'}/>
+                                <Button text={'Más información'}/>
                             </div>
-                            <img className="rounded-md max-w-48 max-h-64" src={imagenInicio2} alt="Imagen de alumno"/>
+                            <img className="rounded-md max-w-48 max-h-64 md:max-w-96 md:max-h-max" src={imagenInicio2} alt="Imagen de alumno"/>
                         </div>
                     </div>
                 </div>
