@@ -54,7 +54,7 @@ export default function AppShell({children}){
             <main className="mt-24">
                 {children}
             </main>
-            <footer className="bg-red-ist w-full px-4 py-4 flex flex-col lg:flex-row lg:items-center gap-6 lg:px-6 lg:py-6">
+            <footer className="bg-red-ist w-full px-4 py-4 flex flex-col lg:flex-row lg:items-start gap-6 lg:px-6 lg:py-6">
                 <div className="flex items-center justify-center">
                     <img className="h-20" src={LogosFooter} alt="Logos institucionales" />
                 </div>

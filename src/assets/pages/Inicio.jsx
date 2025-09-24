@@ -1,5 +1,6 @@
 import AppShell from "../components/AppShell";
 import Carrusel from "../components/Carrusel";
+import Carrusel2 from "../components/Carrusel2";
 import imagenInicio2 from "../images/oferta2.webp"
 import imagenInicio1 from "../images/oferta1.webp";
 import TestimonioCard from "../components/TestimonioCard";
@@ -64,36 +65,38 @@ export default function Inicio(){
                 </div>
             </section>
             <section className="border-b border-b-gray-300">
-                <div className="w-full bg-white flex flex-col items-center p-4">
-                    <h4 className="text-gold-ist font-bold font-noto text-xs">¿Quieres estudiar con nosotros?</h4>
-                    <h2 className="text-3xl font-patria text-black-ist text-center">Contactanos</h2>
-                    <form className="flex flex-col gap-4 w-[85%] mt-2" action="#">
+                <div className="w-full bg-white flex flex-col items-center p-4 md:py-16">
+                    <Titulo3 text={'¿Quieres estudiar con nostros?'}/>
+                    <Titulo2 textTitle={'Contactanos'}/>
+                    <form className="flex flex-col gap-4 w-[85%] md:w-[50%] lg:w-[40%] mt-2" action="#">
                         <input className="border px-2 py-2 rounded-md text-noto" type="text" placeholder="Nombre Completo" />
                         <input className="border px-2 py-2 rounded-md text-noto" type="text" placeholder="Telefono de Contacto" />
                         <input className="border px-2 py-2 rounded-md text-noto" type="text" placeholder="Correo Electronico" />
                         <textarea className="border border-gold-enf-ist p-4 rounded-md" name="plus-info" id="plus-info" placeholder="Escribe aquí ¿Sobre qué deseas obtener información?"></textarea>
-                        <button className="bg-green-enf-ist rounded-md px-2 py-1 text-white font-patria">Enviar</button>
+                        <Button text={'Enviar'}/>
                     </form>
                 </div>
             </section>
             <section className="border-b border-b-gray-300">
                 <div className="w-full bg-white flex flex-col items-center p-4 gap-4">
-                    <div>
-                        <h4 className="text-gold-ist font-bold font-noto text-xs">Hemos formado decenas de profesionistas de la Nutrición</h4>
-                        <h2 className="text-3xl font-patria text-black-ist text-center">Conoce sus historias</h2>
+                    <div className="flex flex-col items-center">
+                        <Titulo3 text={'Hemos formado decenas de profesionistas de la Nutrición'}/>
+                        <Titulo2 textTitle={'Conoce sus historias'}/>
                     </div>
-                    <TestimonioCard/>
-                    <TestimonioCard/>
-                    <TestimonioCard/>
+                    <div className="flex flex-col items-center gap-4 py-6">
+                        <TestimonioCard/>
+                        <TestimonioCard/>
+                        <TestimonioCard/>
+                    </div>
                 </div>
             </section>
             <section>
                 <div className="w-full bg-white flex flex-col items-center gap-4 p-4">
                     <div className="flex flex-col items-center">
-                        <h4 className="text-gold-ist font-bold font-noto text-xs">Conoce más</h4>
-                        <h2 className="text-3xl font-patria text-black-ist text-center">Informate</h2>
+                        <Titulo3 text={'Conoce más'}/>
+                        <Titulo2 textTitle={'Infórmate'}/>
                     </div>
-                    <Carrusel type={'object-contain'} imagenes={imagenes2}/>
+                    <Carrusel2 type={'object-contain'} imagenes={imagenes2}/>
                 </div>
             </section>
         </AppShell>
